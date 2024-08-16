@@ -23,7 +23,7 @@ class Team{
     }
   }
   describe(){
-    return `${this.name} has ${this.player.length} players.`;
+    return `${this.name} has ${this.players.length} players.`;
   }
 }
 // this show who is current playing
@@ -91,7 +91,7 @@ class Menu {
     this.teams.push(new Team(name));
   }
  viewTeam (){
-  let index = prompt(`Enter the indes of the team you wish to view:`);
+  let index = prompt(`Enter the index of the team you wish to view:`);
   if(index > -1 && index< this.teams.length) {
      this.selectedTeam = this.teams[index];
      let description = 'Team Name: ' + this.selectedTeam.name + '\n';
@@ -102,7 +102,7 @@ class Menu {
       } 
 
 
-      let selection1 = this.showTeamMenuOptions(description);
+      let selection1 = this.showTeamMainMenuOptions(description);
       switch (selection1) {
         case '1':
           this.creatPlayer();
@@ -116,7 +116,7 @@ class Menu {
   creatPlayer(){ 
     let name = prompt("Enter name for new player");
     let position = prompt('Enter position for new player');
-    this.selectedTeam.players.push(new Player(name, position));
+    this.selectedTeam.addPlayer.push(new Player(name, position));
   }
 
    deleteTeam(){
